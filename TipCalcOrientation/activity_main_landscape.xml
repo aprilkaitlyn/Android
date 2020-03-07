@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/TXT_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginBottom="25dp"
+        android:text="Bill"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/TXT_tip"
+        app:layout_constraintEnd_toStartOf="@+id/EDIT_BillAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TXT_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="25dp"
+        android:text="Tip (%)"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/red_line"
+        app:layout_constraintEnd_toStartOf="@+id/EDIT_EnterTip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_bill" />
+
+    <EditText
+        android:id="@+id/EDIT_BillAmount"
+        android:layout_width="240dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="176dp"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="enter bill"
+        android:inputType="textPersonName"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Red Line -->
+
+    <EditText
+        android:id="@+id/EDIT_EnterTip"
+        android:layout_width="240dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="176dp"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="enter tip %"
+        android:inputType="textPersonName"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EDIT_BillAmount" />
+
+    <View
+        android:id="@id/red_line"
+        android:layout_width="match_parent"
+        android:layout_height="5dip"
+        android:layout_marginTop="95dp"
+        android:layout_marginBottom="492dp"
+        android:background="#FF00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EDIT_EnterTip"
+        app:layout_constraintVertical_bias="0.206" />
+
+    <TextView
+        android:id="@+id/TXT_TipLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="32dp"
+        android:text="Tip ($)"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/TXT_TotalLabel"
+        app:layout_constraintEnd_toStartOf="@+id/TXT_TipTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_line" />
+
+    <TextView
+        android:id="@+id/TXT_TotalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="60dp"
+        android:text="Total"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/TXT_TotalAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_TipLabel" />
+
+    <TextView
+        android:id="@+id/TXT_TipTotal"
+        android:layout_width="240dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/lightGreen"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/TXT_TotalAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TXT_TipLabel"
+        app:layout_constraintTop_toBottomOf="@+id/red_line" />
+
+    <TextView
+        android:id="@+id/TXT_TotalAmount"
+        android:layout_width="240dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/lightGreen"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TXT_TotalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_TipTotal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
