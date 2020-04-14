@@ -13,7 +13,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_FRIEND = "friend";
     private static final String ID = "id";
-    private static final String FIRSTNAME = "first";
+    private static final String FIRSTNAME = "first"; //names of database columns
     private static final String LASTNAME = "last";
     private static final String EMAIL = "email";
 
@@ -52,7 +52,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<Friend> selectAll() { //from DeleteActivity class & copied from Github
+    public ArrayList<Friend> selectAll() { //from DeleteActivity  
         String sqlQuery = "select * from " + TABLE_FRIEND;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -68,7 +68,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return friends;
     }
 
-    public void deleteById(int id) { //from DeleteActivity class & copied from Github
+    public void deleteById(int id) { //from DeleteActivity
        //create a delete statement
         SQLiteDatabase db = this.getWritableDatabase();
         String sqlDelete = "delete from " + TABLE_FRIEND;
