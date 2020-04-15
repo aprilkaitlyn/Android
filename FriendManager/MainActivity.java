@@ -10,10 +10,14 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -26,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dbManager = new DatabaseManager(this);
-        createView(); // making view here not xml
+    }
+
+    protected void onResume() {
+        super.onResume();
+        createView();
     }
 
     @Override
@@ -65,55 +73,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void createView() { //same as update activity but no ability to edit
         ArrayList<Friend> friends = dbManager.selectAll();
-
-        // create ScrollView and GridLayout
-        if (friends.size()>0) {
-            ScrollView scrollView = new ScrollView(this);
-            GridLayout grid = new GridLayout(this);
-            grid.setRowCount(friends.size());
-            grid.setColumnCount(4); //now 4 because no button
-
-            // create arrays of components
-            TextView[] ids = new TextView[friends.size()];
-            TextView[][] namesAndEmail = new TextView[friends.size()][100];
-
-            // retrieve width of screen
-            Point size = new Point();
-            getWindowManager().getDefaultDisplay().getSize(size);
-            int width = size.x;
-
-            // create the TextView for the candy's id
-            int i = 0;
-
-            for (Friend friend : friends) {
-
-                ids[i] = new TextView(this);
-                ids[i].setGravity(Gravity.CENTER);
-                ids[i].setText("" + friend.getId());
-
-                // create the 3 text views for the friend's name and email
-                namesAndEmail[i][0] = new TextView(this);
-                namesAndEmail[i][1] = new TextView(this);
-                namesAndEmail[i][2] = new TextView(this);
-                namesAndEmail[i][0].setText(friend.getFirstName());
-                namesAndEmail[i][1].setText(friend.getLastName());
-                namesAndEmail[i][2].setText(friend.getEmail());
-                namesAndEmail[i][0].setTextSize(15);
-                namesAndEmail[i][1].setTextSize(15); //small font to fit
-                namesAndEmail[i][2].setTextSize(15);
-                namesAndEmail[i][0].setId(10 * friend.getId());
-                namesAndEmail[i][1].setId(10 * friend.getId() + 1);
-                namesAndEmail[i][2].setId(10 * friend.getId() + 2);
-
-                // add the elements to grid - changed these
-                grid.addView(ids[i], (int) (width * .05), ViewGroup.LayoutParams.WRAP_CONTENT);
-                grid.addView(namesAndEmail[i][0], (int) (width * .2), ViewGroup.LayoutParams.WRAP_CONTENT);
-                grid.addView(namesAndEmail[i][1], (int) (width * .3), ViewGroup.LayoutParams.WRAP_CONTENT);
-                grid.addView(namesAndEmail[i][2], (int) (width * .4), ViewGroup.LayoutParams.WRAP_CONTENT);
-                i++;
-            }
-            scrollView.addView(grid);
-            setContentView(scrollView);
+        RelativeLayout layout = new RelativeLayout(this);
+        ScrollView scrollView = new ScrollView(this);
+        RadioGroup group = new RadioGroup(this);
+        for (Friend friend : friends) {
+            TextView friendList = new TextView(this);
+            friendList.setId(friend.getId());
+            friendList.setText("✽ " + friend.toString());
+            friendList.setTextSize(20);
+            group.addView(friendList);
         }
+
+        scrollView.addView(group);
+        layout.addView(scrollView);
+
+        RelativeLayout.LayoutParams params
+                = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        params.setMargins(0, 0, 0, 50);
+        layout.setPadding(50,50,50,50);
+
+        setContentView(layout);
     }
 }
