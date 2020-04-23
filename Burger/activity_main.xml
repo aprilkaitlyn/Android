@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/IMG_Background"
+        android:layout_width="505dp"
+        android:layout_height="825dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/burgerbackground" />
+
+    <ImageView
+        android:id="@+id/IMG_TopBun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/topbun" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="438dp"
+        android:layout_height="228dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SEEK_Sauce"
+        app:srcCompat="@drawable/bottombun" />
+
+    <RadioGroup
+        android:id="@+id/RADIOGRP_Patty"
+        android:layout_width="183dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="170dp"
+        android:visibility="visible"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/IMG_Background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/IMG_Background"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/BEEF"
+            android:layout_width="wrap_content"
+            android:layout_height="50sp"
+            android:gravity="center"
+            android:text="Beef Patty"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/LAMB"
+            android:layout_width="wrap_content"
+            android:layout_height="50sp"
+            android:gravity="center"
+            android:text="Lamb Patty"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/OSTRICH"
+            android:layout_width="wrap_content"
+            android:layout_height="50sp"
+            android:gravity="center"
+            android:text="Ostrich Patty"
+            android:textSize="24sp" />
+
+    </RadioGroup>
+
+    <SeekBar
+        android:id="@+id/SEEK_Sauce"
+        style="@android:style/Widget.SeekBar"
+        android:layout_width="356dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="90dp"
+        android:backgroundTint="#00888888"
+        android:progressTint="#FC1B08"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/IMG_Background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/IMG_Background"
+        app:layout_constraintTop_toBottomOf="@+id/RADIOGRP_Cheese" />
+
+    <TextView
+        android:id="@+id/TXT_SauceInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="466dp"
+        android:layout_marginBottom="40dp"
+        android:text="Caviar sauce up to one teaspoon"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/SEEK_Sauce"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/SEEK_Sauce"
+        app:layout_constraintTop_toTopOf="@+id/IMG_Background" />
+
+    <CheckBox
+        android:id="@+id/CHKBOX_Prosciutto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="159dp"
+        android:layout_marginBottom="11dp"
+        android:text="Prosciutto"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/RADIOGRP_Cheese"
+        app:layout_constraintEnd_toStartOf="@+id/IMG_Background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/IMG_Background"
+        app:layout_constraintTop_toTopOf="@+id/RADIOGRP_Patty" />
+
+    <RadioGroup
+        android:id="@+id/RADIOGRP_Cheese"
+        android:layout_width="361dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="199dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/TXT_SauceInstructions"
+        app:layout_constraintEnd_toStartOf="@+id/IMG_Background"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/IMG_Background"
+        app:layout_constraintTop_toBottomOf="@+id/IMG_TopBun">
+
+        <RadioButton
+            android:id="@+id/ASIAGO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asiago Cheese"
+            android:textSize="22sp" />
+
+        <RadioButton
+            android:id="@+id/CREME_FRAICHE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Creme Fraiche"
+            android:textSize="22sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TXT_Calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:text="Calories"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
