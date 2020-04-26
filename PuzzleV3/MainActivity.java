@@ -11,8 +11,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity
-        implements View.OnTouchListener {
+public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
+    
+  //v3 - mobile double tap changes to android  
     public static int STATUS_BAR_HEIGHT = 24; // in dp
     public static int ACTION_BAR_HEIGHT = 56; // in dp
     private PuzzleView puzzleView;
@@ -36,20 +37,16 @@ public class MainActivity extends AppCompatActivity
 
         TypedValue tv = new TypedValue( );
         actionBarHeight = ( int ) ( pixelDensity * ACTION_BAR_HEIGHT );
-        if( getTheme( ).resolveAttribute( android.R.attr.actionBarSize,
-                tv, true ) )
-            actionBarHeight = TypedValue.complexToDimensionPixelSize( tv.data,
-                    metrics );
+        if( getTheme( ).resolveAttribute( android.R.attr.actionBarSize, tv, true ) )
+            actionBarHeight = TypedValue.complexToDimensionPixelSize( tv.data, metrics );
 
         statusBarHeight = ( int ) ( pixelDensity *  STATUS_BAR_HEIGHT );
-        int resourceId =
-                res.getIdentifier( "status_bar_height", "dimen", "android" );
+        int resourceId = res.getIdentifier( "status_bar_height", "dimen", "android" );
         if( resourceId != 0 ) // found resource for status bar height
             statusBarHeight = res.getDimensionPixelSize( resourceId );
 
         int puzzleHeight = screenHeight - statusBarHeight - actionBarHeight;
-        puzzleView = new PuzzleView( this, puzzleWidth, puzzleHeight,
-                puzzle.getNumberOfParts( ) );
+        puzzleView = new PuzzleView( this, puzzleWidth, puzzleHeight, puzzle.getNumberOfParts( ) );
         String [] scrambled = puzzle.scramble( );
         puzzleView.fillGui( scrambled );
         puzzleView.enableListener( this );
@@ -91,8 +88,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private class DoubleTapHandler
-            extends GestureDetector.SimpleOnGestureListener {
+    private class DoubleTapHandler extends GestureDetector.SimpleOnGestureListener {
         public boolean onDoubleTapEvent( MotionEvent event ) {
             int touchY = ( int ) event.getRawY( );
             // y coordinate of the touch within puzzleView is
