@@ -1,0 +1,50 @@
+THIS IS VERY MESSY!!!
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00AD4A4A"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/FRAG_database"
+        android:name="com.example.wonderfulproject.DatabaseFragment"
+        android:layout_width="0dp"
+        android:layout_height="647dp"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_database" />
+
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#FFEB3B"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/FRAG_info"
+            android:name="com.example.wonderfulproject.EnterInfoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            tools:layout="@layout/fragment_enter_info" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="221dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Button" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
