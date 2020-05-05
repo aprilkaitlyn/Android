@@ -1,0 +1,117 @@
+THIS IS MESSY !!!! 
+
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:gravity="center"
+        android:id="@+id/enter_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <EditText
+                android:id="@+id/EDIT_Miles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="101dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="100dp"
+                android:ems="10"
+                android:hint="miles"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TXT_PricePerMile" />
+
+            <TextView
+                android:id="@+id/TXT_PricePerMile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="101dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="price per mile"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TXT_BasePrice" />
+
+            <TextView
+                android:id="@+id/TXT_BasePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="99dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="100dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="base price"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/RG_Taxi"
+        android:layout_width="150dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_TotalPrice" >
+
+        <RadioButton
+            android:id="@+id/RB_CreepyVan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Creepy Van"
+            app:layout_constraintEnd_toEndOf="@+id/RG_Taxi"
+            app:layout_constraintStart_toStartOf="@+id/RG_Taxi"
+            app:layout_constraintTop_toTopOf="@+id/RG_Taxi" />
+
+        <RadioButton
+            android:id="@+id/RB_Cops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Cops"
+            app:layout_constraintEnd_toEndOf="@+id/RG_Taxi"
+            app:layout_constraintStart_toStartOf="@+id/RG_Taxi"
+            app:layout_constraintTop_toBottomOf="@+id/RB_CreepyVan" />
+
+        <RadioButton
+            android:id="@+id/RB_StanBts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Stan BTS"
+            app:layout_constraintEnd_toEndOf="@+id/RG_Taxi"
+            app:layout_constraintStart_toStartOf="@+id/RG_Taxi"
+            app:layout_constraintTop_toBottomOf="@+id/RB_Cops" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TXT_TotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="total cost"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EDIT_Miles" />
+
+</LinearLayout>
